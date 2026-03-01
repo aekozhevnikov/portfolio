@@ -8,26 +8,45 @@ declare module '@quasar/app-vite' {
 }
 
 export default boot(({ app }) => {
-    const supabaseUrl = String(process.env.SUPABASE_URL)
-    const supabaseAnonKey = String(process.env.SUPABASE_ANON_KEY)
+    const supabaseUrl = process.env.SUPABASE_URL
+    const supabaseAnonKey = process.env.SUPABASE_ANON_KEY
 
-    if (!supabaseUrl) {
-        console.warn(
-            'Supabase URL is not configured. Please set SUPABASE_URL in your environment variables.',
-        )
+    // Validate URL format
+    const isValidUrl = (url: string | undefined): boolean => {
+        if (!url) return false
+        try {
+            new URL(url)
+            return url.startsWith('http://') || url.startsWith('https://')
+        } catch {
+            return false
+        }
     }
 
-    if (!supabaseAnonKey) {
-        console.warn(
-            'Supabase anon key is not configured. Please set SUPABASE_ANON_KEY in your environment variables.',
+    if (!supabaseUrl || !supabaseAnonKey) {
+        console.error(
+            '❌ Supabase configuration error: SUPABASE_URL or SUPABASE_ANON_KEY is missing. Please check your environment variables.',
         )
+        console.error('   Make sure you have .env.local.dev file with correct values.')
+        // Don't create client with invalid config
+        return
     }
 
-    const supabase = createClient(supabaseUrl, supabaseAnonKey)
+    if (!isValidUrl(supabaseUrl)) {
+        console.error(
+            `❌ Invalid Supabase URL: "${supabaseUrl}". Must be a valid HTTP or HTTPS URL.`,
+        )
+        return
+    }
 
-    // Provide supabase instance to the app
-    app.config.globalProperties.$supabase = supabase
+    try {
+        const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
-    // Make it available in the boot context for other boot files
-    app.provide('supabase', supabase)
+        // Provide supabase instance to the app
+        app.config.globalProperties.$supabase = supabase
+
+        // Make it available in the boot context for other boot files
+        app.provide('supabase', supabase)
+    } catch (error) {
+        console.error('❌ Failed to initialize Supabase client:', error)
+    }
 })

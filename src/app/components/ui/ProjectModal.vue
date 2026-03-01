@@ -1,11 +1,14 @@
 <template>
     <q-dialog
         v-model="showDialog"
-        maximized
         transition-show="slide-up"
         transition-hide="slide-down"
+        :style="{ top: '80px' }"
+        full-width
+        maximized-with-padding
+        backdrop-filter="blur(8px)"
     >
-        <q-card v-if="project" class="bg-surface">
+        <q-card v-if="project" class="bg-surface project-modal-card" style="border-radius: 20px">
             <q-card-section class="row items-center justify-between q-pa-md">
                 <div class="text-h5 text-weight-bold text-primary">{{ project.title }}</div>
                 <q-btn icon="close" flat round dense v-close-popup @click="closeDialog" />
@@ -13,7 +16,7 @@
 
             <q-separator />
 
-            <q-card-section class="scroll" style="max-height: 80vh; overflow-y: auto">
+            <q-card-section class="scroll" style="padding: 0">
                 <div class="q-pa-md">
                     <!-- Gallery -->
                     <div v-if="projectImages.length > 0" class="q-mb-xl">
@@ -315,6 +318,15 @@ const getTechBadgeUrl = (tech: string, variant: string) => {
 </script>
 
 <style scoped lang="scss">
+.project-modal-card {
+    max-height: calc(100vh - 80px);
+}
+
+.scroll {
+    max-height: calc(100vh - 160px);
+    overflow-y: auto;
+}
+
 .scroll::-webkit-scrollbar {
     width: 8px;
 }

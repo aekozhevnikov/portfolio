@@ -96,6 +96,7 @@ export const skills: SiteConfig['skills'] = {
                 { language: 'HTML5', icon: 'html5', variant: 'original' },
                 { language: 'CSS3', icon: 'css3', variant: 'original' },
                 { language: 'SCSS', icon: 'sass', variant: 'original' },
+                { language: 'Swift', icon: 'swift', variant: 'original' },
             ],
         },
         {
@@ -103,6 +104,7 @@ export const skills: SiteConfig['skills'] = {
             skills: [
                 { language: 'Vue.js', icon: 'vuejs', variant: 'original' },
                 { language: 'Quasar', icon: 'quasar', variant: 'original' },
+                { language: 'SwiftUi', icon: 'swiftui', variant: 'original' },
             ],
         },
         {
@@ -119,6 +121,8 @@ export const skills: SiteConfig['skills'] = {
             category: 'expertise.databases',
             skills: [
                 { language: 'PostgreSQL', icon: 'postgresql', variant: 'original' },
+                { language: 'Sqlite', icon: 'sqlite', variant: 'original' },
+                { language: 'Firebase', icon: 'firebase', variant: 'original' },
                 { language: 'Redis', icon: 'redis', variant: 'wordmark' },
             ],
         },
@@ -132,6 +136,8 @@ export const skills: SiteConfig['skills'] = {
                 { language: 'Azure', icon: 'azure', variant: 'original' },
                 { language: 'Vercel', icon: 'vercel', variant: 'original' },
                 { language: 'Netlify', icon: 'netlify', variant: 'original' },
+                { language: 'Supabase', icon: 'supabase', variant: 'original' },
+                { language: 'YandexCloud', icon: 'yandexcloud', variant: 'original' },
                 { language: 'Kubernetes', icon: 'kubernetes', variant: 'original' },
                 { language: 'Puppeteer', icon: 'puppeteer', variant: 'original' },
             ],

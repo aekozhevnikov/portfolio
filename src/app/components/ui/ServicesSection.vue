@@ -52,9 +52,9 @@
             </div>
 
             <!-- Request Service Dialog -->
-            <q-dialog v-model="showDialog" persistent>
+            <q-dialog v-model="showDialog" persistent backdrop-filter="blur(8px)">
                 <q-card
-                    class="service-request-dialog theme-bg-surface"
+                    class="theme-bg-surface"
                     style="min-width: 500px; max-width: 90vw; border-radius: 20px"
                 >
                     <q-toolbar class="bg-primary text-white">
