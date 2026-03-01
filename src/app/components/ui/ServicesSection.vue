@@ -151,18 +151,17 @@
 </template>
 
 <script setup lang="ts">
-import { computed, getCurrentInstance, reactive, ref } from 'vue'
+import { computed, inject, reactive, ref } from 'vue'
 import { useSiteStore } from 'src/app/stores/siteStore'
 import { useI18n } from 'vue-i18n'
 import { Notify } from 'quasar'
 import type { FormHandlerResponse, FormSubmissionRequest } from 'src/types'
 
 const { t } = useI18n()
-const instance = getCurrentInstance()
 const siteStore = useSiteStore()
 
-// Access Supabase from Vue's global properties
-const supabase = instance?.appContext.config.globalProperties.$supabase
+// Inject Supabase client that was provided in boot file
+const supabase = inject('supabase')
 
 interface Service {
     title: string

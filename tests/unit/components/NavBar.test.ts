@@ -139,8 +139,11 @@ describe('NavBar Component', () => {
     it('should add scroll event listener on mount', async () => {
         const addEventListenerSpy = jest.spyOn(window, 'addEventListener')
 
+        const wrapper = await mountQuasar(NavBar as any)
+
         expect(addEventListenerSpy).toHaveBeenCalledWith('scroll', expect.any(Function))
 
+        await wrapper.unmount()
         addEventListenerSpy.mockRestore()
     })
 
@@ -225,6 +228,11 @@ describe('NavBar Component', () => {
                 },
             }
 
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            const wrapper = await mountQuasar(NavBar as any, {
+                quasar: quasarMock,
+            })
+
             expect(setSpy).toHaveBeenCalledWith(true)
 
             getItemSpy.mockRestore()
@@ -248,6 +256,11 @@ describe('NavBar Component', () => {
                 },
             }
 
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            const wrapper = await mountQuasar(NavBar as any, {
+                quasar: quasarMock,
+            })
+
             expect(setSpy).toHaveBeenCalledWith(false)
 
             getItemSpy.mockRestore()
@@ -270,6 +283,11 @@ describe('NavBar Component', () => {
                     toggle: jest.fn(),
                 },
             }
+
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            const wrapper = await mountQuasar(NavBar as any, {
+                quasar: quasarMock,
+            })
 
             expect(setSpy).not.toHaveBeenCalled()
 

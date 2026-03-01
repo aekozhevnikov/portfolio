@@ -134,6 +134,9 @@ describe('Footer Component', () => {
             t: jest.fn((key: string) => key),
         })
 
+        const wrapper = await mountQuasar(Footer as any)
+
+        // getSocialIcon should be called for each social link during component render
         expect(getSocialIcon).toHaveBeenCalledWith('GitHub')
         expect(getSocialIcon).toHaveBeenCalledWith('LinkedIn')
         expect(getSocialIcon).toHaveBeenCalledWith('Twitter')

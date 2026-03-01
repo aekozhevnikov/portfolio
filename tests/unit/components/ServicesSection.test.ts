@@ -74,121 +74,75 @@ describe('ServicesSection Component', () => {
         // Clean up if needed
     })
 
+    // Helper function to mount component with both globalProperties and provide/inject
+    const mountServicesSection = async (options: any = {}) => {
+        return await mountQuasar(ServicesSection as any, {
+            global: {
+                config: {
+                    globalProperties: {
+                        $supabase: mockSupabase,
+                    },
+                },
+                ...options.global,
+            },
+            provide: {
+                supabase: mockSupabase,
+            },
+            ...options,
+        })
+    }
+
     it('should be defined', () => {
         expect(ServicesSection).toBeDefined()
     })
 
     describe('Rendering', () => {
         it('should render section structure', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             expect(wrapper.find('section').exists()).toBe(true)
             expect(wrapper.find('.services-section').exists()).toBe(true)
         })
 
         it('should render title and subtitle with translations', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             expect(wrapper.text()).toContain('Services')
             expect(wrapper.text()).toContain('What I can do')
         })
 
         it('should render all service cards', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             mockServices.forEach((service) => {
                 expect(wrapper.text()).toContain(service.title)
             })
         })
 
         it('should render service icons with data-name attributes', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             expect(wrapper.html()).toContain('data-name="icon1"')
             expect(wrapper.html()).toContain('data-name="icon2"')
         })
 
         it('should render service descriptions', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             expect(wrapper.text()).toContain('Desc A')
             expect(wrapper.text()).toContain('Desc B')
         })
 
         it('should render request buttons', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const buttons = wrapper.findAll('.q-btn')
             const requestBtns = buttons.filter((el) => el.text().includes('Request'))
             expect(requestBtns.length).toBe(2)
         })
 
         it('should render service cards with service color or fallback to primary', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             expect(wrapper.html()).toContain('color="#111"') // First service has color
             expect(wrapper.html()).toContain('color="primary"') // Second falls back
         })
 
         it('should render dialog structure', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             expect(wrapper.find('.q-dialog').exists()).toBe(true)
             expect(wrapper.find('.service-request-dialog').exists()).toBe(true)
             expect(wrapper.find('.q-toolbar').exists()).toBe(true)
@@ -196,41 +150,17 @@ describe('ServicesSection Component', () => {
         })
 
         it('should render dialog title with fallback', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             expect(wrapper.html()).toContain('Request Service')
         })
 
         it('should render selected service placeholder in dialog', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             expect(wrapper.html()).toContain('For:')
         })
 
         it('should render all form fields', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             expect(wrapper.html()).toContain('label="Name*"')
             expect(wrapper.html()).toContain('label="Email*"')
             expect(wrapper.html()).toContain('label="Company"')
@@ -240,70 +170,30 @@ describe('ServicesSection Component', () => {
         })
 
         it('should render q-select for budget and timeline', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const selects = wrapper.findAll('.q-select')
             expect(selects.length).toBe(2)
         })
 
         it('should render textarea for message', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             expect(wrapper.html()).toContain('type="textarea"')
             expect(wrapper.html()).toContain('rows="5"')
         })
 
         it('should render cancel and submit buttons', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             expect(wrapper.text()).toContain('Cancel')
             expect(wrapper.text()).toContain('Submit')
         })
 
         it('should have submit button with type="submit"', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             expect(wrapper.html()).toContain('type="submit"')
         })
 
         it('should have responsive grid classes', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             expect(wrapper.html()).toContain('row')
             expect(wrapper.html()).toContain('col-12')
             expect(wrapper.html()).toContain('col-md-6')
@@ -319,15 +209,7 @@ describe('ServicesSection Component', () => {
                 },
                 isDark: false,
             }
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             expect(wrapper.findAll('.service-card').length).toBe(0)
         })
 
@@ -338,30 +220,14 @@ describe('ServicesSection Component', () => {
                 },
                 isDark: false,
             }
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             expect(wrapper.findAll('.service-card').length).toBe(0)
         })
     })
 
     describe('Computed Properties', () => {
         it('should compute services from siteStore.config.services', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const vm = wrapper.vm as any
             expect(vm.services).toEqual(mockServices)
         })
@@ -373,29 +239,13 @@ describe('ServicesSection Component', () => {
                 },
                 isDark: false,
             }
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const vm = wrapper.vm as any
             expect(vm.services).toEqual([])
         })
 
         it('should compute budgetOptions from translations', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const vm = wrapper.vm as any
             expect(vm.budgetOptions).toHaveLength(4)
             expect(vm.budgetOptions[0]).toEqual({ label: 'Small', value: 'small' })
@@ -403,15 +253,7 @@ describe('ServicesSection Component', () => {
         })
 
         it('should compute timelineOptions from translations', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const vm = wrapper.vm as any
             expect(vm.timelineOptions).toHaveLength(4)
             expect(vm.timelineOptions[0]).toEqual({ label: 'ASAP', value: 'asap' })
@@ -420,57 +262,25 @@ describe('ServicesSection Component', () => {
 
     describe('Reactive State', () => {
         it('should have showDialog initially false', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const vm = wrapper.vm as any
             expect(vm.showDialog).toBe(false)
         })
 
         it('should have selectedService initially null', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const vm = wrapper.vm as any
             expect(vm.selectedService).toBeNull()
         })
 
         it('should have submitting initially false', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const vm = wrapper.vm as any
             expect(vm.submitting).toBe(false)
         })
 
         it('should have formData initialized with empty values', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const vm = wrapper.vm as any
             expect(vm.formData).toEqual({
                 name: '',
@@ -485,29 +295,13 @@ describe('ServicesSection Component', () => {
 
     describe('Methods', () => {
         it('should have openRequestDialog function', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const vm = wrapper.vm as any
             expect(typeof vm.openRequestDialog).toBe('function')
         })
 
         it('should set selectedService and open dialog in openRequestDialog', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const vm = wrapper.vm as any
             const service = mockServices[0]
 
@@ -518,15 +312,7 @@ describe('ServicesSection Component', () => {
         })
 
         it('should reset formData in openRequestDialog', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const vm = wrapper.vm as any
 
             // Pre-fill formData
@@ -548,29 +334,13 @@ describe('ServicesSection Component', () => {
         })
 
         it('should have submitRequest function', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const vm = wrapper.vm as any
             expect(typeof vm.submitRequest).toBe('function')
         })
 
         it('should set submitting to true when submitRequest is called', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const vm = wrapper.vm as any
 
             vm.submitRequest()
@@ -578,15 +348,7 @@ describe('ServicesSection Component', () => {
         })
 
         it('should call Notify.create on successful submission', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const vm = wrapper.vm as any
             const Notify = require('quasar').Notify.create as jest.Mock
 
@@ -634,15 +396,7 @@ describe('ServicesSection Component', () => {
         })
 
         it('should set submitting to false and close dialog after submission', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const vm = wrapper.vm as any
 
             // Setup: open dialog and fill form
@@ -666,15 +420,7 @@ describe('ServicesSection Component', () => {
         })
 
         it('should handle Supabase error response', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const vm = wrapper.vm as any
             const Notify = require('quasar').Notify.create as jest.Mock
 
@@ -709,15 +455,7 @@ describe('ServicesSection Component', () => {
         })
 
         it('should handle Supabase function exception', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const vm = wrapper.vm as any
             const Notify = require('quasar').Notify.create as jest.Mock
 
@@ -794,15 +532,7 @@ describe('ServicesSection Component', () => {
 
     describe('Internationalization', () => {
         it('should use translations when available', async () => {
-            const wrapper = await mountQuasar(ServicesSection as any, {
-                global: {
-                    config: {
-                        globalProperties: {
-                            $supabase: mockSupabase,
-                        },
-                    },
-                },
-            })
+            const wrapper = await mountServicesSection()
             const html = wrapper.html()
             expect(html).toContain('Services')
             expect(html).toContain('What I can do')

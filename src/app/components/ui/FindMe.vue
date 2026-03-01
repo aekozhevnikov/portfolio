@@ -271,6 +271,10 @@ const submitForm = async () => {
             throw error
         }
 
+        if (!data) {
+            throw new Error('No data received from server')
+        }
+
         const response = data as FormHandlerResponse
 
         if (!response.success) {

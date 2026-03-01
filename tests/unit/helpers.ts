@@ -420,10 +420,6 @@ export async function mountQuasar(
     await nextTick()
     await flushPromises()
 
-    // Log what the component sees for $q.dark.isActive
-    const vm = wrapper.vm as any
-    console.error(`[DEBUG] After mount: vm.$q.dark.isActive = ${vm?.$q?.dark?.isActive}`)
-
     // Clear the global instance after mounting to avoid test contamination
     delete (globalThis as any).__QUASAR_MOCK_INSTANCE__
 

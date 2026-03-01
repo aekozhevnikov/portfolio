@@ -175,10 +175,17 @@ describe('ExpertiseSection Component', () => {
             t: jest.fn((key: string) => key),
         })
 
+        const wrapper = await mountQuasar(ExpertiseSection as any)
+
+        // Verify getDeviconUrl was called with the correct arguments for each skill
         expect(getDeviconUrl).toHaveBeenCalledWith('vuejs', 'plain')
         expect(getDeviconUrl).toHaveBeenCalledWith('react', 'plain')
         expect(getDeviconUrl).toHaveBeenCalledWith('typescript', 'plain')
         expect(getDeviconUrl).toHaveBeenCalledWith('nodejs', 'plain')
+        expect(getDeviconUrl).toHaveBeenCalledWith('python', 'plain')
+        expect(getDeviconUrl).toHaveBeenCalledWith('postgresql', 'plain')
+        expect(getDeviconUrl).toHaveBeenCalledWith('mongodb', 'plain')
+        expect(getDeviconUrl).toHaveBeenCalledWith('docker', 'plain')
     })
 
     it('should have tooltips with skill language names', async () => {
