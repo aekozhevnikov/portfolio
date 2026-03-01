@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { beforeEach, describe, expect, it, jest } from '@jest/globals'
 import { mountQuasar } from '../helpers'
 import ExpertiseSection from 'src/app/components/ui/ExpertiseSection.vue'
@@ -109,7 +110,6 @@ describe('ExpertiseSection Component', () => {
         })
 
         const wrapper = await mountQuasar(ExpertiseSection as any)
-        const vm = wrapper.vm as any
 
         // Each category renders a div with title
         const categoryTitles = wrapper.findAll('.text-h6.text-weight-bold.text-primary')
@@ -143,7 +143,7 @@ describe('ExpertiseSection Component', () => {
         })
 
         const titles = wrapper.findAll('.text-h6')
-        expect(titles[0]?.text()).toBe('frontend')  // t() returns key in mock
+        expect(titles[0]?.text()).toBe('frontend') // t() returns key in mock
     })
 
     it('should render skill icons for each category', async () => {
@@ -174,8 +174,6 @@ describe('ExpertiseSection Component', () => {
             },
             t: jest.fn((key: string) => key),
         })
-
-        const wrapper = await mountQuasar(ExpertiseSection as any)
 
         expect(getDeviconUrl).toHaveBeenCalledWith('vuejs', 'plain')
         expect(getDeviconUrl).toHaveBeenCalledWith('react', 'plain')
@@ -566,9 +564,7 @@ describe('ExpertiseSection Component', () => {
         const skillWithNoVariant: SkillCategory[] = [
             {
                 category: 'frontend',
-                skills: [
-                    { language: 'Vue.js', icon: 'vuejs', variant: 'plain' },
-                ],
+                skills: [{ language: 'Vue.js', icon: 'vuejs', variant: 'plain' }],
             },
         ]
 

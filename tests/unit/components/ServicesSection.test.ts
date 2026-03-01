@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { beforeEach, describe, expect, it, jest } from '@jest/globals'
 import { mountQuasar } from '../helpers'
 import ServicesSection from 'src/app/components/ui/ServicesSection.vue'

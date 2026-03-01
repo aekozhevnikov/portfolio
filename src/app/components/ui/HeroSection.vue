@@ -89,7 +89,6 @@ import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useSiteStore } from 'src/app/stores/siteStore'
 import { useQuasar } from 'quasar'
-import { theme } from 'src/config/theme.config'
 import { downloadResumePDF } from 'src/utils/resumePDF'
 
 const { t, locale } = useI18n()
@@ -132,12 +131,6 @@ const downloadCV = async () => {
     } finally {
         isGenerating.value = false
     }
-}
-
-const getHeroGradient = () => {
-    return $q.dark.isActive
-        ? `linear-gradient(135deg, ${theme.darkHeroGradientStart} 0%, ${theme.darkHeroGradientEnd} 100%)`
-        : `linear-gradient(135deg, ${theme.heroGradientStart} 0%, ${theme.heroGradientEnd} 100%)`
 }
 
 const profileImage = computed(() => {

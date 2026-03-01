@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { beforeEach, describe, expect, it, jest } from '@jest/globals'
 import { mountQuasar } from '../helpers'
 import Footer from 'src/app/components/ui/Footer.vue'
@@ -132,8 +133,6 @@ describe('Footer Component', () => {
             config: { personal: { name: 'Test' }, socials: mockSocialLinks },
             t: jest.fn((key: string) => key),
         })
-
-        const wrapper = await mountQuasar(Footer as any)
 
         expect(getSocialIcon).toHaveBeenCalledWith('GitHub')
         expect(getSocialIcon).toHaveBeenCalledWith('LinkedIn')

@@ -154,11 +154,10 @@
 import { computed, getCurrentInstance, reactive, ref } from 'vue'
 import { useSiteStore } from 'src/app/stores/siteStore'
 import { useI18n } from 'vue-i18n'
-import { Notify, useQuasar } from 'quasar'
+import { Notify } from 'quasar'
 import type { FormHandlerResponse, FormSubmissionRequest } from 'src/types'
 
 const { t } = useI18n()
-const $q = useQuasar()
 const instance = getCurrentInstance()
 const siteStore = useSiteStore()
 
@@ -227,12 +226,12 @@ const submitRequest = async () => {
 
         // Get the translated labels for budget and timeline
         const getBudgetLabel = (value: string) => {
-            const option = budgetOptions.value.find(opt => opt.value === value)
+            const option = budgetOptions.value.find((opt) => opt.value === value)
             return option?.label || value
         }
 
         const getTimelineLabel = (value: string) => {
-            const option = timelineOptions.value.find(opt => opt.value === value)
+            const option = timelineOptions.value.find((opt) => opt.value === value)
             return option?.label || value
         }
 

@@ -1,6 +1,7 @@
 import { defineConfig } from '#q-app/wrappers'
 import { loadEnv } from './loadEnv'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default defineConfig((ctx) => {
     const { envVars } = loadEnv()
 

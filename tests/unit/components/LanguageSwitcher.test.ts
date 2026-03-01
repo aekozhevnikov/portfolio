@@ -177,7 +177,6 @@ describe('LanguageSwitcher Component', () => {
 
     it('should apply active-lang styling when English is active', async () => {
         const wrapper = await mountQuasar(LanguageSwitcher as any)
-        const vm = wrapper.vm as any
 
         // Already on English
         const buttons = wrapper.findAll('.q-btn')

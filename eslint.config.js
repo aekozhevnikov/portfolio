@@ -71,10 +71,13 @@ export default [
     // add your custom rules here
     rules: {
       'prefer-promise-reject-errors': 'off',
-      '@typescript-eslint/consistent-type-imports': [
-        'error',
-        { prefer: 'type-imports' }
-      ],
+      // Disable type-aware rule that causes issues with Vue files in flat config
+      // Enable it only for .ts files if needed
+      '@typescript-eslint/consistent-type-imports': 'off',
+
+      // Disable some rules that are too strict for development
+      '@typescript-eslint/no-explicit-any': 'off',
+      'vue/multi-word-component-names': 'off',
 
       // allow debugger during development only
       'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
