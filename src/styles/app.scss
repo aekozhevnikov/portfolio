@@ -1,0 +1,127 @@
+// app global css in SCSS forms
+// CSS Custom Properties for theme colors - synchronized with theme.config.ts
+
+:root {
+  --color-primary: #6366f1;
+  --color-primary-light: #818cf8;
+  --color-primary-dark: #4f46e5;
+
+  --color-secondary: #ec4899;
+  --color-secondary-light: #f472b6;
+  --color-secondary-dark: #db2777;
+
+  --color-accent: #06b6d4;
+  --color-accent-light: #22d3e8;
+  --color-accent-dark: #0891b2;
+
+  --color-positive: #10b981;
+  --color-negative: #ef4444;
+  --color-info: #3b82f6;
+  --color-warning: #f59e0b;
+
+  --color-dark: #0a0a0a;
+  --color-light: #ffffff;
+
+  --color-page: #f8f9fa;
+  --color-surface: #ffffff;
+  --color-border: #e5e7eb;
+  --color-border-dark: #2a2a2a;
+
+  --color-text-primary: #0a0a0a;
+  --color-text-secondary: #475569;
+
+  --overlay-bg: rgba(0, 0, 0, 0.05);
+}
+
+// Dark mode overrides
+.body--dark {
+  --color-page: #121212;
+  --color-surface: #1e1e1e;
+  --color-border: #2a2a2a;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b0b0b0;
+
+  --overlay-bg: rgba(0, 0, 0, 0.2);
+}
+
+// Smooth transition for theme switching
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+// Smooth scroll offset for fixed header
+#about,
+#projects,
+#services,
+#skills,
+#reviews,
+#contact {
+  scroll-margin-top: 120px;
+}
+
+// Border radius utilities
+.br-15 {
+  border-radius: 15px;
+}
+
+.br-20 {
+  border-radius: 20px;
+}
+
+.br-25 {
+  border-radius: 25px;
+}
+
+// Additional utilities
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+// Dynamic theme colors (respond to dark/light mode) - use "theme-" prefix
+.theme-bg-surface {
+  background-color: var(--color-surface) !important;
+}
+
+.theme-bg-page {
+  background-color: var(--color-page) !important;
+}
+
+.theme-bg-overlay {
+  background-color: var(--overlay-bg) !important;
+}
+
+.theme-border-default {
+  border-color: var(--color-border) !important;
+}
+
+.theme-text-primary {
+  color: var(--color-text-primary) !important;
+}
+
+.theme-text-secondary {
+  color: var(--color-text-secondary) !important;
+}
+
+// Card backgrounds with better contrast
+.card-dark-bg {
+  background-color: var(--color-surface) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+.body--dark .card-dark-bg {
+  background-color: #1a1a1a !important;
+  border-color: #333333 !important;
+}
+
+// Lighter cards for dark theme (more contrast against dark page)
+.card-light-bg {
+  background-color: var(--color-surface) !important;
+}
+
+.body--dark .card-light-bg {
+  background-color: #252525 !important;
+  border: 1px solid #404040 !important;
+}
+
+

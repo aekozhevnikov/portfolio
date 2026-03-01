@@ -1,0 +1,52 @@
+// Quasar SCSS (& Sass) Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass/SCSS variables found in Quasar's source Sass/SCSS files.
+
+// Check documentation for full list of Quasar variables
+
+// Your own variables (that are declared here) and Quasar's own
+// ones will be available out of the box in your .vue/.scss/.sass files
+
+// Theme: Modern Indigo-Pink gradient
+// Import theme configuration
+@use 'sass:map';
+
+// Define color palette - centralized in theme.config.ts for JS usage
+// These SCSS variables are for Quasar components and CSS
+
+$primary: #6366f1;           // Indigo 500
+$primary-light: #818cf8;     // Indigo 400
+$primary-dark: #4f46e5;      // Indigo 600
+
+$secondary: #ec4899;         // Pink 500
+$secondary-light: #f472b6;   // Pink 400
+$secondary-dark: #db2777;    // Pink 600
+
+$accent: #06b6d4;           // Cyan 500
+$accent-light: #22d3e8;     // Cyan 400
+$accent-dark: #0891b2;      // Cyan 600
+
+$dark: #0a0a0a;             // Near black
+$dark-page: #121212;        // Dark page background
+
+$grey: #64748b;             // Slate 500
+
+$positive: #10b981;         // Emerald 500
+$negative: #ef4444;         // Red 500
+$info: #3b82f6;             // Blue 500
+$warning: #f59e0b;          // Amber 500
+
+$gold: #fbbf24;             // Amber 400
+$silver: #94a3b8;           // Slate 400
+$bronze: #d97706;           // Amber 600
+
+// Gradient backgrounds
+$hero-gradient-start: #f5f7fa;
+$hero-gradient-end: #e4e8ec;
+$dark-hero-gradient-start: #1a1a2e;
+$dark-hero-gradient-end: #16213e;
+
+// Border colors
+$border: #e5e7eb;
+$border-dark: #2a2a2a;

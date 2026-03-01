@@ -1,0 +1,184 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About me",
+        "projects": "Projects",
+        "services": "Services",
+        "skills": "Skills",
+        "reviews": "Reviews",
+        "contact": "Contacts"
+    },
+    "header": {
+        "title": "Anton Kozhevnikov",
+        "downloadCv": "Download CV",
+        "contactMe": "Contact Me"
+    },
+    "footer": {
+        "followMe": "Follow Me",
+        "madeWith": "Made with",
+        "by": "by",
+        "allRightsReserved": "All Rights Reserved"
+    },
+    "landing": {
+        "title": "Hi, I'm Anton",
+        "subtitle": "FullStack Developer",
+        "description": "Developer with experience in creating fullstack solutions and internal services. Interested in developing reliable and scalable systems, business process automation, and deep diving into DevOps practices.",
+        "cvButton": "Download CV",
+        "contactButton": "Contact Me"
+    },
+    "about": {
+        "title": "About Me",
+        "greeting": "Hello, my name is Anton.",
+        "description": "Actively immersed in the IT field. Every day I improve my development skills, mastering more and more technology stack. The goal of becoming a professional in this field motivates me to work hard and develop."
+    },
+    "expertise": {
+        "title": "Technical Stack",
+        "subtitle": "Technologies and tools I work with",
+        "programmingLanguages": "Programming Languages",
+        "backend": "Backend",
+        "frontend": "Frontend",
+        "databases": "Databases",
+        "devops": "Infrastructure and DevOps",
+        "categories": {
+            "virtualization": "Virtualization",
+            "orchestration": "Orchestration",
+            "proxy": "Reverse Proxy",
+            "messaging": "Message Broker",
+            "iac": "Infrastructure as Code",
+            "monitoring": "Monitoring",
+            "logging": "Logging",
+            "alerts": "Alerts",
+            "secrets": "Secret Management Systems",
+            "backup": "Backup",
+            "deployment": "Deployment"
+        }
+    },
+    "reviews": {
+        "title": "Reviews",
+        "subtitle": "What people say about my work",
+        "client": "Client",
+        "project": "Project"
+    },
+    "hero": {
+        "cvButton": "Download CV",
+        "contactButton": "Contact Me"
+    },
+    "projects": {
+        "title": "Featured Projects",
+        "subtitle": "A selection of my recent works",
+        "view": "View Project",
+        "code": "View Code",
+        "allProjects": "View All Projects",
+        "technologies": "Technologies",
+        "highlights": "Key Highlights",
+        "showAll": "View all projects",
+        "showLess": "Show less"
+    },
+    "services": {
+        "title": "Services",
+        "subtitle": "Professional services tailored to your needs",
+        "request": "Request Service",
+        "requestTitle": "Request Service",
+        "requestFor": "Request for",
+        "webDev": "Web Development",
+        "webDevDesc": "Creating responsive and user-friendly web applications using modern technologies.",
+        "uiux": "UI/UX Design",
+        "uiuxDesc": "Designing beautiful and intuitive user interfaces and experiences.",
+        "consulting": "Consulting",
+        "consultingDesc": "Providing expert advice on technology stack and architecture decisions.",
+        "form": {
+            "name": "Full Name",
+            "email": "Email Address",
+            "company": "Company (Optional)",
+            "budget": "Budget Range",
+            "timeline": "Project Timeline",
+            "message": "Project Description",
+            "required": "This field is required",
+            "invalidEmail": "Please enter a valid email address"
+        },
+        "budgetOptions": {
+            "small": "Small (up to $1,000)",
+            "medium": "Medium (up to $3,000)",
+            "large": "Large (up to $5,000)",
+            "custom": "Custom (from $5,000)"
+        },
+        "timelineOptions": {
+            "asap": "ASAP",
+            "weeks": "Within a few weeks",
+            "months": "Within a few months",
+            "flexible": "Flexible"
+        },
+        "requestSent": "Your service request has been sent successfully! I'll get back to you soon.",
+        "requestError": "Failed to send service request. Please try again."
+    },
+    "expertise": {
+        "title": "Technical Expertise",
+        "programmingLanguages": "Programming Languages",
+        "backend": "Backend",
+        "frontend": "Frontend",
+        "databases": "Databases",
+        "devops": "Infrastructure and DevOps",
+        "categories": {
+            "virtualization": "Virtualization",
+            "orchestration": "Orchestration",
+            "proxy": "Reverse Proxy",
+            "messaging": "Message Broker",
+            "iac": "Infrastructure as Code",
+            "monitoring": "Monitoring",
+            "logging": "Logging",
+            "alerts": "Alerts",
+            "secrets": "Secret Management Systems",
+            "backup": "Backup",
+            "deployment": "Deployment"
+        }
+    },
+    "reviews": {
+        "title": "Reviews",
+        "client": "Client",
+        "project": "Project"
+    },
+    "contact": {
+        "title": "Get In Touch",
+        "subtitle": "Have a project in mind? Let's talk!",
+        "infoTitle": "Contact Information",
+        "formTitle": "Send me a message",
+        "location": "Nizhnevartovsk, Russia",
+        "email": "Email",
+        "position": "Job Title",
+        "form": {
+            "name": "Your Name",
+            "email": "Email Address",
+            "subject": "Subject",
+            "message": "Message",
+            "type": "Inquiry Type",
+            "requiredFields": "* Required fields",
+            "success": "Your message has been sent successfully! I'll get back to you soon."
+        },
+        "inquiryTypes": {
+            "general": "General Inquiry",
+            "project": "Project Discussion",
+            "consulting": "Consulting",
+            "other": "Other"
+        }
+    },
+    "social": "Social Links",
+    "socials": {
+        "title": "Social Networks"
+    },
+    "common": {
+        "loading": "Loading...",
+        "error": "Error",
+        "success": "Success",
+        "save": "Save",
+        "cancel": "Cancel",
+        "edit": "Edit",
+        "delete": "Delete",
+        "add": "Add",
+        "close": "Close",
+        "clear": "Clear",
+        "submit": "Submit",
+        "send": "Send Message",
+        "required": "This field is required",
+        "invalidEmail": "Please enter a valid email address"
+    }
+}
