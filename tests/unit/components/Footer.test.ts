@@ -140,6 +140,8 @@ describe('Footer Component', () => {
         expect(getSocialIcon).toHaveBeenCalledWith('GitHub')
         expect(getSocialIcon).toHaveBeenCalledWith('LinkedIn')
         expect(getSocialIcon).toHaveBeenCalledWith('Twitter')
+
+        wrapper.unmount()
     })
 
     it('should have correct href for social buttons', async () => {

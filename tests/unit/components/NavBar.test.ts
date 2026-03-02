@@ -228,7 +228,6 @@ describe('NavBar Component', () => {
                 },
             }
 
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const wrapper = await mountQuasar(NavBar as any, {
                 quasar: quasarMock,
             })
@@ -236,6 +235,8 @@ describe('NavBar Component', () => {
             expect(setSpy).toHaveBeenCalledWith(true)
 
             getItemSpy.mockRestore()
+
+            wrapper.unmount()
         })
 
         it('should call $q.dark.set(false) when localStorage has "false"', async () => {
@@ -256,7 +257,6 @@ describe('NavBar Component', () => {
                 },
             }
 
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const wrapper = await mountQuasar(NavBar as any, {
                 quasar: quasarMock,
             })
@@ -264,6 +264,8 @@ describe('NavBar Component', () => {
             expect(setSpy).toHaveBeenCalledWith(false)
 
             getItemSpy.mockRestore()
+
+            wrapper.unmount()
         })
 
         it('should not call $q.dark.set when localStorage returns null', async () => {
@@ -284,7 +286,6 @@ describe('NavBar Component', () => {
                 },
             }
 
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const wrapper = await mountQuasar(NavBar as any, {
                 quasar: quasarMock,
             })
@@ -292,6 +293,8 @@ describe('NavBar Component', () => {
             expect(setSpy).not.toHaveBeenCalled()
 
             getItemSpy.mockRestore()
+
+            wrapper.unmount()
         })
     })
 

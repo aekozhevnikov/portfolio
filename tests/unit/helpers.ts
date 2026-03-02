@@ -411,7 +411,7 @@ export async function mountQuasar(
     }
 
     // Set the global Quasar mock instance for the mocked useQuasar() to return
-    globalThis.__QUASAR_MOCK_INSTANCE__ = quasarMock
+    ;(globalThis as any).__QUASAR_MOCK_INSTANCE__ = quasarMock
 
     // Create wrapper with all mocks
     const wrapper = mount(component, mountOptions)

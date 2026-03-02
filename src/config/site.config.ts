@@ -8,6 +8,7 @@ export interface Project {
         devops?: Skill[]
         databases?: Skill[]
         languages?: Skill[]
+        integrations?: Skill[]
     }
     link?: string | undefined
     codeLink?: string | undefined
@@ -97,6 +98,7 @@ export const skills: SiteConfig['skills'] = {
                 { language: 'CSS3', icon: 'css3', variant: 'original' },
                 { language: 'SCSS', icon: 'sass', variant: 'original' },
                 { language: 'Swift', icon: 'swift', variant: 'original' },
+                { language: 'Dart', icon: 'dart', variant: 'original' },
             ],
         },
         {
@@ -104,7 +106,7 @@ export const skills: SiteConfig['skills'] = {
             skills: [
                 { language: 'Vue.js', icon: 'vuejs', variant: 'original' },
                 { language: 'Quasar', icon: 'quasar', variant: 'original' },
-                { language: 'SwiftUi', icon: 'swiftui', variant: 'original' },
+                { language: 'Flutter', icon: 'flutter', variant: 'original' },
             ],
         },
         {

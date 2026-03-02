@@ -197,16 +197,18 @@
 import { computed, inject, reactive, ref } from 'vue'
 import { useSiteStore } from 'src/app/stores/siteStore'
 import { useI18n } from 'vue-i18n'
-import { Notify, useQuasar } from 'quasar'
+import { useQuasar } from 'quasar'
 import { getSocialIcon } from 'src/utils/socialIcons'
+import { showError, showSuccess } from 'src/utils/notifications'
 import type { FormHandlerResponse, FormSubmissionRequest } from 'src/types'
+import type { SupabaseClient } from '@supabase/supabase-js'
 
 const { t } = useI18n()
 const $q = useQuasar()
 const siteStore = useSiteStore()
 
 // Inject Supabase client that was provided in boot file
-const supabase = inject('supabase')
+const supabase = inject<SupabaseClient>('supabase')
 
 const personalInfo = computed(() => siteStore.config.personal)
 
@@ -247,7 +249,9 @@ const submitForm = async () => {
 
     try {
         if (!supabase) {
-            throw new Error('Supabase client not initialized')
+            // Handle missing supabase client immediately
+            showError(t, 'contact.form.error', new Error('Supabase client not initialized'), 'Supabase client not initialized. Please refresh the page.')
+            return
         }
 
         // Prepare form data as expected by the Edge Function
@@ -267,44 +271,34 @@ const submitForm = async () => {
             body: payload,
         })
 
+        // Handle Supabase error response
         if (error) {
-            throw error
+            showError(t, 'contact.form.error', error)
+            return
         }
 
+        // Handle missing data
         if (!data) {
-            throw new Error('No data received from server')
+            showError(t, 'contact.form.error', null, 'No response from server. Please try again.')
+            return
         }
 
         const response = data as FormHandlerResponse
 
+        // Handle unsuccessful response from Edge Function
         if (!response.success) {
-            throw new Error(response.error || 'Unknown error occurred')
+            showError(t, 'contact.form.error', new Error(response.error || 'Unknown error'))
+            return
         }
 
-        Notify.create({
-            type: 'positive',
-            message:
-                t('contact.form.success') ||
-                "Your message has been sent successfully! I'll get back to you soon.",
-            position: 'top',
-            timeout: 4000,
-            classes: 'br-20',
-        })
+        showSuccess(t, 'contact.form.success', "Your message has been sent successfully! I'll get back to you soon.")
 
         resetForm()
     } catch (error: any) {
+        // Handle network errors, exceptions, etc.
         console.error('Form submission error:', error)
 
-        Notify.create({
-            type: 'negative',
-            message:
-                t('contact.form.error') ||
-                error.message ||
-                'Failed to send message. Please try again.',
-            position: 'top',
-            timeout: 5000,
-            classes: 'br-20',
-        })
+        showError(t, 'contact.form.error', error)
     } finally {
         submitting.value = false
     }

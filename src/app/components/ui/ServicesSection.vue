@@ -154,14 +154,15 @@
 import { computed, inject, reactive, ref } from 'vue'
 import { useSiteStore } from 'src/app/stores/siteStore'
 import { useI18n } from 'vue-i18n'
-import { Notify } from 'quasar'
+import { showError, showSuccess } from 'src/utils/notifications'
 import type { FormHandlerResponse, FormSubmissionRequest } from 'src/types'
+import type { SupabaseClient } from '@supabase/supabase-js'
 
 const { t } = useI18n()
 const siteStore = useSiteStore()
 
 // Inject Supabase client that was provided in boot file
-const supabase = inject('supabase')
+const supabase = inject<SupabaseClient>('supabase')
 
 interface Service {
     title: string
@@ -220,7 +221,14 @@ const submitRequest = async () => {
 
     try {
         if (!supabase) {
-            throw new Error('Supabase client not initialized')
+            // Handle missing supabase client immediately
+            showError(
+                t,
+                'services.requestError',
+                new Error('Supabase client not initialized'),
+                'Supabase client not initialized. Please refresh the page.',
+            )
+            return
         }
 
         // Get the translated labels for budget and timeline
@@ -253,40 +261,33 @@ const submitRequest = async () => {
             body: payload,
         })
 
+        // Handle Supabase error response
         if (error) {
-            throw error
+            showError(t, 'services.requestError', error)
+            return
         }
 
         const response = data as FormHandlerResponse
 
+        // Handle unsuccessful response from Edge Function
         if (!response.success) {
-            throw new Error(response.error || 'Unknown error occurred')
+            showError(t, 'services.requestError', new Error(response.error || 'Unknown error'))
+            return
         }
 
-        Notify.create({
-            type: 'positive',
-            message:
-                t('services.requestSent') ||
-                'Your service request has been sent successfully! I will get back to you soon.',
-            position: 'top',
-            timeout: 3000,
-            classes: 'br-20',
-        })
+        showSuccess(
+            t,
+            'services.requestSent',
+            'Your service request has been sent successfully! I will get back to you soon.',
+            3000,
+        )
 
         showDialog.value = false
     } catch (error: any) {
+        // Handle network errors, exceptions, etc.
         console.error('Service request submission error:', error)
 
-        Notify.create({
-            type: 'negative',
-            message:
-                t('services.requestError') ||
-                error.message ||
-                'Failed to send service request. Please try again.',
-            position: 'top',
-            timeout: 5000,
-            classes: 'br-20',
-        })
+        showError(t, 'services.requestError', error)
     } finally {
         submitting.value = false
     }

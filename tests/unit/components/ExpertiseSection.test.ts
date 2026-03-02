@@ -186,6 +186,8 @@ describe('ExpertiseSection Component', () => {
         expect(getDeviconUrl).toHaveBeenCalledWith('postgresql', 'plain')
         expect(getDeviconUrl).toHaveBeenCalledWith('mongodb', 'plain')
         expect(getDeviconUrl).toHaveBeenCalledWith('docker', 'plain')
+
+        wrapper.unmount()
     })
 
     it('should have tooltips with skill language names', async () => {

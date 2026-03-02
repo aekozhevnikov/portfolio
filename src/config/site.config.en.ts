@@ -15,12 +15,13 @@ export const defaultSiteConfigEn: SiteConfig = {
     projects: [
         {
             id: 'crm',
-            title: 'CRM System',
-            description: 'Corporate CRM system for employees: managers, performers',
+            title: 'KupiSalon CRM',
+            description: 'Comprehensive CRM system for auto detailing salons with order management, client tracking, and Telegram bot integration',
             technologies: {
                 languages: [
                     { language: 'TypeScript', icon: 'typeScript', variant: 'original' },
                     { language: 'Google App Script', icon: 'googleappscript', variant: 'original' },
+                    { language: 'Python', icon: 'python', variant: 'original' },
                 ],
                 frontend: [
                     { language: 'Vue.js', icon: 'vuejs', variant: 'original' },
@@ -33,7 +34,19 @@ export const defaultSiteConfigEn: SiteConfig = {
                 databases: [{ language: 'PostgreSQL', icon: 'postgresql', variant: 'original' }],
                 devops: [
                     { language: 'Docker', icon: 'docker', variant: 'original' },
+                    { language: 'Traefik', icon: 'traefikproxy', variant: 'original' },
+                    { language: 'Vault', icon: 'vault', variant: 'original' },
+                    { language: 'Ansible', icon: 'ansible', variant: 'original' },
                     { language: 'Git', icon: 'git', variant: 'original' },
+                    { language: 'Grafana', icon: 'grafana', variant: 'original' },
+                    { language: 'Prometheus', icon: 'prometheus', variant: 'original' },
+                    { language: 'Loki', icon: 'loki', variant: 'original' },
+                    { language: 'Alertmanager', icon: 'alertmanager', variant: 'original' },
+                ],
+                integrations: [
+                    { language: 'Telegram Bot', icon: 'telegram', variant: 'original' },
+                    { language: 'Google API', icon: 'google', variant: 'original' },
+                    { language: 'Telegram Mini App', icon: 'smartphone', variant: 'original' },
                 ],
             },
             link: 'https://github.com/aekozhevnikov',
@@ -42,14 +55,20 @@ export const defaultSiteConfigEn: SiteConfig = {
             leftSided: true,
             showImage: true,
             highlights: [
-                'Rewrote and improved the corporate CRM system, which accelerated business processes',
-                'Increased employee productivity by 40%',
-                'Reduced document errors',
+                'Full-featured CRM for auto detailing chain with Telegram bot integration',
+                'Production system serving 8,000+ customers with comprehensive monitoring stack',
+                'Automated PostgreSQL backups with Transparent Data Encryption (Percona)',
+                'Telegram Mini App for mobile customer experience',
+                'Google Workspace integration (Google Tables, Google Analytics)',
+                'High code quality: strict TypeScript, Zod validation',
+                'Multi-tenant architecture with admin panel for content management',
+                'Advanced reporting with Prisma ORM and automated data processing',
             ],
             customStyle: {
-                background: '#f0e9ee',
-                border: '0.5px solid #4b135d',
-                btnColor: '#d12e26',
+                background: '#f3e8ff',
+                border: '2px solid #7c3aed',
+                btnColor: '#8b5cf6',
+                textColor: '#4c1d95',
             },
         },
         {
@@ -256,7 +275,7 @@ export const defaultSiteConfigEn: SiteConfig = {
             showImage: true,
             highlights: [
                 'Production system serving 8,000+ customers in a restaurant chain',
-                'Full DevOps stack: Docker, Traefik, Vault, Ansible, K8s, AWS, Grafana, Prometheus, Loki, Alertmanager',
+                'Full DevOps stack: Docker, Traefik, Vault, Ansible, Grafana, Prometheus, Loki, Alertmanager',
                 'Automated PostgreSQL backups to Yandex Disk with Transparent Data Encryption (Percona)',
                 'Complex integrations: IIKO loyalty, GetIt bonuses, VSEM EDI, 2GIS/Yandex reviews',
                 'High code quality: 10/10 pylint, strict mypy, comprehensive test coverage (unit/integration/e2e)',
@@ -291,30 +310,46 @@ export const defaultSiteConfigEn: SiteConfig = {
     socials: socials,
     services: [
         {
-            title: 'Frontend',
+            title: 'Full-Stack Development',
             description:
-                'Creating modern responsive web applications with the latest technologies.',
-            icon: 'code',
+                'Building complete web applications with Vue.js/Quasar frontend and Node.js/Express backend. Expertise in TypeScript, REST APIs, and real-time features.',
+            icon: 'developer_mode',
             color: 'primary',
         },
         {
-            title: 'Backend',
+            title: 'CRM & Business Systems',
             description:
-                'Building robust and scalable server-side applications, RESTful APIs, and microservices.',
-            icon: 'memory',
-            color: 'primary',
-        },
-        {
-            title: 'UI/UX Design',
-            description: 'Designing beautiful and intuitive user interfaces and experiences.',
-            icon: 'palette',
+                'Developing comprehensive CRM solutions for various industries. Experience with order management, client tracking, reporting, and automated workflows.',
+            icon: 'business',
             color: 'secondary',
         },
         {
-            title: 'Consulting',
-            description: 'Expert advice on technology stack selection and architectural solutions.',
-            icon: 'psychology',
+            title: 'Telegram Bot Development',
+            description:
+                'Creating production-grade Telegram bots for customer engagement, notifications, surveys, and automated interactions. Integration with external APIs.',
+            icon: 'telegram',
+            color: 'primary',
+        },
+        {
+            title: 'DevOps & Infrastructure',
+            description:
+                'Setting up complete infrastructure with Docker, Traefik, Vault, monitoring (Grafana/Prometheus/Loki). Automated PostgreSQL backups, CI/CD pipelines.',
+            icon: 'cloud',
             color: 'accent',
+        },
+        {
+            title: 'API Integrations',
+            description:
+                'Integrating external services: payment systems, analytics, maps (2GIS/Yandex), EDI systems, loyalty programs, and third-party APIs.',
+            icon: 'integration',
+            color: 'warning',
+        },
+        {
+            title: 'Database Design',
+            description:
+                'Designing efficient PostgreSQL databases with Prisma ORM. Complex queries, data modeling, migrations, and performance optimization.',
+            icon: 'storage',
+            color: 'info',
         },
     ],
 }

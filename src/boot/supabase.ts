@@ -1,11 +1,5 @@
 import { boot } from 'quasar/wrappers'
-import { createClient, SupabaseClient } from '@supabase/supabase-js'
-
-declare module '@quasar/app-vite' {
-    interface QuasarAppBootConfig {
-        supabase: (app: any) => SupabaseClient | void
-    }
-}
+import { createClient } from '@supabase/supabase-js'
 
 export default boot(({ app }) => {
     const supabaseUrl = process.env.SUPABASE_URL

@@ -8,19 +8,25 @@ export const defaultSiteConfigRu: SiteConfig = {
         email: email,
         description:
             'Разработчик с опытом создания fullstack-решений и внутренних сервисов. Заинтересован в разработке надёжных и масштабируемых систем, автоматизации бизнес-процессов и глубоком погружении в DevOps-практики.',
-        about: 'Я - Full Stack Разработчик с опытом более 5 лет в создании веб-приложений. Специализируюсь на JavaScript, TypeScript и экосистеме Node.js. Моя цель - создавать качественный, масштабируемый и поддерживаемый код.',
+        about: 'Я - Full Stack Разработчик с опытом более 6 лет в создании веб-приложений. Специализируюсь на JavaScript, TypeScript и экосистеме Node.js. Моя цель - создавать качественный, масштабируемый и поддерживаемый код.',
         image: avatar,
         showResumeButton: true,
     },
     projects: [
         {
             id: 'crm',
-            title: 'CRM Система',
-            description: 'Корпоративная CRM система для сотрудников: менеджеров, исполнителей',
+            title: 'KupiSalon CRM',
+            description:
+                'Комплексная CRM система для детейлинг центра с управлением заказами, отслеживанием клиентов и интеграцией Telegram бота, Телеграм мини приложения и Гугл таблиц',
             technologies: {
-                frontend: [
+                languages: [
                     { language: 'TypeScript', icon: 'typeScript', variant: 'original' },
                     { language: 'Google App Script', icon: 'googleappscript', variant: 'original' },
+                    { language: 'Python', icon: 'python', variant: 'original' },
+                ],
+                frontend: [
+                    { language: 'Vue.js', icon: 'vuejs', variant: 'original' },
+                    { language: 'Quasar', icon: 'quasar', variant: 'original' },
                 ],
                 backend: [
                     { language: 'Node.js', icon: 'nodejs', variant: 'original' },
@@ -29,23 +35,39 @@ export const defaultSiteConfigRu: SiteConfig = {
                 databases: [{ language: 'PostgreSQL', icon: 'postgresql', variant: 'original' }],
                 devops: [
                     { language: 'Docker', icon: 'docker', variant: 'original' },
+                    { language: 'Traefik', icon: 'traefikproxy', variant: 'original' },
+                    { language: 'Vault', icon: 'vault', variant: 'original' },
                     { language: 'Git', icon: 'git', variant: 'original' },
+                    { language: 'Grafana', icon: 'grafana', variant: 'original' },
+                    { language: 'Prometheus', icon: 'prometheus', variant: 'original' },
+                    { language: 'Loki', icon: 'loki', variant: 'original' },
+                    { language: 'Alertmanager', icon: 'alertmanager', variant: 'original' },
+                ],
+                integrations: [
+                    { language: 'Telegram Bot', icon: 'telegram', variant: 'original' },
+                    { language: 'Google API', icon: 'google', variant: 'original' },
+                    { language: 'Telegram Mini App', icon: 'smartphone', variant: 'original' },
                 ],
             },
-            link: 'https://github.com/aekozhevnikov',
             featured: true,
             order: 1,
             leftSided: true,
             showImage: true,
             highlights: [
-                'Переписал и доработал корпоративную CRM - систему, которая позволила ускорить рабочие бизнес процессы',
-                'Ускорила работу сотрудников на 40%',
-                'Сократила количество ошибок в документах',
+                'Полноценная CRM для детейлинг центра',
+                'Продуктовая система на 8,000+ клиентов с комплексным стеком мониторинга',
+                'Автоматические бэкапы PostgreSQL с Transparent Data Encryption (Percona)',
+                'Telegram Mini App для мобильного опыта клиентов',
+                'Интеграция с Google Workspace (Google Tables, Google Analytics)',
+                'Высокое качество кода: строгий TypeScript, Zod валидация',
+                'Multi-tenant архитектура с админ-панелью для управления контентом',
+                'Продвинутая отчетность с Prisma ORM и автоматизированными расчетами',
             ],
             customStyle: {
-                background: '#f0e9ee',
-                border: '0.5px solid #4b135d',
-                btnColor: '#d12e26',
+                background: '#f3e8ff',
+                border: '2px solid #7c3aed',
+                btnColor: '#8b5cf6',
+                textColor: '#4c1d95',
             },
         },
         {
@@ -53,9 +75,13 @@ export const defaultSiteConfigRu: SiteConfig = {
             title: 'Партнерский сервис',
             description: 'Веб приложение для партнеров компании',
             technologies: {
+                languages: [
+                    { language: 'TypeScript', icon: 'typeScript', variant: 'original' },
+                    { language: 'Google App Script', icon: 'googleappscript', variant: 'original' },
+                    { language: 'Python', icon: 'python', variant: 'original' },
+                ],
                 frontend: [
                     { language: 'Vue.js', icon: 'vuejs', variant: 'original' },
-                    { language: 'TypeScript', icon: 'typescript', variant: 'original' },
                     { language: 'Quasar', icon: 'quasar', variant: 'original' },
                 ],
                 backend: [
@@ -245,14 +271,14 @@ export const defaultSiteConfigRu: SiteConfig = {
                     { language: 'Git', icon: 'git', variant: 'original' },
                 ],
             },
-            link: 'https://github.com/aekozhevnikov/VincenzoBot',
+            link: 'https://t.me/VincenzoPizzaBot',
             featured: true,
             order: 7,
             leftSided: true,
             showImage: true,
             highlights: [
                 'Продуктовая система на 8,000+ клиентов в сети ресторанов',
-                'Полный DevOps стек: Docker, Traefik, Vault, Ansible, K8s, AWS, Grafana, Prometheus, Loki, Alertmanager',
+                'Полный DevOps стек: Docker, Traefik, Vault, Ansible, Grafana, Prometheus, Loki, Alertmanager',
                 'Автоматические бэкапы PostgreSQL на Яндекс Диск с Transparent Data Encryption (Percona)',
                 'Сложные интеграции: IIKO лояльность, GetIt бонусы, VSEM EDI, отзывы 2GIS/Яндекс',
                 'Высокое качество кода: 10/10 pylint, strict mypy, полное покрытие тестами (unit/integration/e2e)',
@@ -287,32 +313,46 @@ export const defaultSiteConfigRu: SiteConfig = {
     socials: socials,
     services: [
         {
-            title: 'Фронтенд',
+            title: 'Full-Stack Разработка',
             description:
-                'Создание современных отзывчивых веб-приложений с использованием последних технологий.',
-            icon: 'code',
+                'Создание полноценных веб-приложений с фронтендом на Vue.js/Quasar и бэкендом на Node.js/Express. Экспертиза в TypeScript, REST API и real-time функциях.',
+            icon: 'developer_mode',
             color: 'primary',
         },
         {
-            title: 'Бэкенд',
+            title: 'CRM и Бизнес-системы',
             description:
-                'Создание надежных и масштабируемых серверных приложений, RESTful API и микросервисов.',
-            icon: 'memory',
-            color: 'primary',
-        },
-        {
-            title: 'UI/UX дизайн',
-            description:
-                'Проектирование красивого и интуитивно понятного пользовательского интерфейса и опыта.',
-            icon: 'palette',
+                'Разработка комплексных CRM решений для различных отраслей. Опыт в управлении заказами, отслеживании клиентов, отчетности и автоматизации рабочих процессов.',
+            icon: 'business',
             color: 'secondary',
         },
         {
-            title: 'Консультации',
+            title: 'Разработка Telegram Ботов',
             description:
-                'Экспертные консультации по выбору технологиологического стека и архитектурных решений.',
-            icon: 'psychology',
+                'Создание production-grade Telegram ботов для взаимодействия с клиентами, уведомлений, опросов и автоматизации. Интеграция с внешними API.',
+            icon: 'telegram',
+            color: 'primary',
+        },
+        {
+            title: 'DevOps и Инфраструктура',
+            description:
+                'Настройка полноценной инфраструктуры с Docker, Traefik, Vault, мониторингом (Grafana/Prometheus/Loki). Автоматические бэкапы PostgreSQL, CI/CD пайплайны.',
+            icon: 'cloud',
             color: 'accent',
+        },
+        {
+            title: 'API Интеграции',
+            description:
+                'Интеграция внешних сервисов: платежные системы, аналитика, карты (2GIS/Яндекс), EDI системы, программы лояльности, сторонние API.',
+            icon: 'integration',
+            color: 'warning',
+        },
+        {
+            title: 'Проектирование Баз Данных',
+            description:
+                'Проектирование эффективных PostgreSQL баз данных с Prisma ORM. Сложные запросы, моделирование данных, миграции и оптимизация производительности.',
+            icon: 'storage',
+            color: 'info',
         },
     ],
 }
